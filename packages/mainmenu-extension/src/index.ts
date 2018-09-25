@@ -311,6 +311,11 @@ export function createFileMenu(app: JupyterLab, menu: FileMenu): void {
     }
   });
 
+  const createNoteBookGroup = [
+    { command: 'filebrowser:create-notebook-python3'},
+    { command: 'filebrowser:create-notebook-python2'}
+  ]
+
   // Add the new group
   const newGroup = [
     { type: 'submenu' as Menu.ItemType, submenu: menu.newMenu.menu },
@@ -354,11 +359,12 @@ export function createFileMenu(app: JupyterLab, menu: FileMenu): void {
   // Add the quit group.
   const quitGroup = [{ command: 'filemenu:quit' }];
 
-  menu.addGroup(newGroup, 0);
-  menu.addGroup(newViewGroup, 1);
-  menu.addGroup(closeGroup, 2);
-  menu.addGroup(saveGroup, 3);
-  menu.addGroup(reGroup, 4);
+  menu.addGroup(createNoteBookGroup,0);
+  menu.addGroup(newGroup, 10);
+  menu.addGroup(newViewGroup, 11);
+  menu.addGroup(closeGroup, 12);
+  menu.addGroup(saveGroup, 13);
+  menu.addGroup(reGroup, 14);
   if (menu.quitEntry) {
     menu.addGroup(quitGroup, 99);
   }

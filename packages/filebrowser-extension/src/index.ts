@@ -45,6 +45,9 @@ namespace CommandIDs {
 
   export const copyDownloadLink = 'filebrowser:copy-download-link';
 
+  export const createPython2 = 'filebrowser:create-notebook-python2';
+
+  export const createPython3 = 'filebrowser:create-notebook-python3';
   // For main browser only.
   export const createLauncher = 'filebrowser:create-main-launcher';
 
@@ -520,6 +523,14 @@ function addCommands(
     label: 'New Launcher',
     execute: () => createLauncher(commands, browser)
   });
+  commands.addCommand(CommandIDs.createPython3, {
+    label: "新建 Python 3 Notebook",
+    execute: ()=> createNotebookPython3(commands, browser)
+  });
+  commands.addCommand(CommandIDs.createPython2, {
+    label: "新建 Python 2 Notebook",
+    execute: ()=> createNotebookPython2(commands, browser)
+  })
 }
 
 /**
@@ -610,4 +621,43 @@ function createLauncher(
       );
       return launcher;
     });
+}
+
+
+function createNotebookPython3(
+  commands: CommandRegistry,
+  browser: FileBrowser
+): Promise<MainAreaWidget<Launcher>> {
+  const {model} = browser;
+
+  return commands
+  .execute('launcher:create', { cwd: model.path })
+  .then((launcher: MainAreaWidget<Launcher>) => {
+    model.pathChanged.connect(
+      () => {
+        launcher.content.cwd = model.path;
+      },
+      launcher
+    );
+    return launcher;
+  });
+}
+
+function createNotebookPython2(
+  commands: CommandRegistry,
+  browser: FileBrowser
+): Promise<MainAreaWidget<Launcher>> {
+  const {model} = browser;
+
+  return commands
+  .execute('launcher:create', { cwd: model.path })
+  .then((launcher: MainAreaWidget<Launcher>) => {
+    model.pathChanged.connect(
+      () => {
+        launcher.content.cwd = model.path;
+      },
+      launcher
+    );
+    return launcher;
+  });
 }
