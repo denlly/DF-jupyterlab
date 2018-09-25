@@ -27,7 +27,7 @@ export class RunMenu extends JupyterLabMenu implements IRunMenu {
    */
   constructor(options: Menu.IOptions) {
     super(options);
-    this.menu.title.label = 'Run';
+    this.menu.title.label = '运行';
 
     this.codeRunners = new Set<IRunMenu.ICodeRunner<Widget>>();
   }

@@ -78,9 +78,9 @@
     "@phosphor/disposable" "^1.1.2"
     "@phosphor/signaling" "^1.2.2"
 
-"@jupyterlab/buildutils@^0.10.2":
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/@jupyterlab/buildutils/-/buildutils-0.10.2.tgz#4a92adec212399c53ac69cd076620c74293ad71e"
+"@jupyterlab/buildutils@^0.9.4":
+  version "0.9.4"
+  resolved "https://registry.npmjs.org/@jupyterlab/buildutils/-/buildutils-0.9.4.tgz#ecaad9f0df6ce5840a737e9e6e352ef9a6bf49cf"
   dependencies:
     child_process "~1.0.2"
     fs-extra "~4.0.2"

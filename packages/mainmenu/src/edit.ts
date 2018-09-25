@@ -34,7 +34,7 @@ export class EditMenu extends JupyterLabMenu implements IEditMenu {
    */
   constructor(options: Menu.IOptions) {
     super(options);
-    this.menu.title.label = 'Edit';
+    this.menu.title.label = '编辑';
 
     this.undoers = new Set<IEditMenu.IUndoer<Widget>>();
 

@@ -147,7 +147,7 @@ function activateFactory(
       onClick: () => {
         return createLauncher(commands, widget);
       },
-      tooltip: 'New Launcher2'
+      tooltip: 'New Launcher'
     });
     widget.toolbar.insertItem(0, 'launch', launcher);
 
@@ -440,7 +440,7 @@ function addCommands(
 
   commands.addCommand(CommandIDs.share, {
     execute: () => {
-      const path = encodeURI(browser.selectedItems().next().path);
+      const path = encodeURIComponent(browser.selectedItems().next().path);
       const tree = PageConfig.getTreeUrl({ workspace: true });
 
       Clipboard.copyToSystem(URLExt.join(tree, path));
@@ -517,7 +517,7 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.createLauncher, {
-    label: 'New Launcher10',
+    label: 'New Launcher',
     execute: () => createLauncher(commands, browser)
   });
 }

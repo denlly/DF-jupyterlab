@@ -42,7 +42,7 @@ export class FileMenu extends JupyterLabMenu implements IFileMenu {
   constructor(options: Menu.IOptions) {
     super(options);
 
-    this.menu.title.label = 'File';
+    this.menu.title.label = '文件';
 
     this.quitEntry = false;
 

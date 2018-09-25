@@ -46,7 +46,7 @@ function activate(app: JupyterLab, palette: ICommandPalette): ILauncher {
   const model = new LauncherModel();
 
   commands.addCommand(CommandIDs.create, {
-    label: 'New Launcher4',
+    label: 'New Launcher',
     execute: (args: JSONObject) => {
       const cwd = args['cwd'] ? String(args['cwd']) : '';
       const id = `launcher-${Private.id++}`;
