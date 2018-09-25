@@ -478,7 +478,7 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.save, {
-    label: () => `Save ${fileType()}`,
+    label: () => `保存 ${fileType()}`,
     caption: 'Save and create checkpoint',
     isEnabled,
     execute: () => {
@@ -486,8 +486,8 @@ function addCommands(
         let context = docManager.contextForWidget(shell.currentWidget);
         if (context.model.readOnly) {
           return showDialog({
-            title: 'Cannot Save',
-            body: 'Document is read-only',
+            title: '无法保存',
+            body: '这是一个只读文档',
             buttons: [Dialog.okButton()]
           });
         }
@@ -506,7 +506,7 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.saveAll, {
-    label: () => 'Save All',
+    label: () => '保存全部',
     caption: 'Save all open documents',
     isEnabled: () => {
       const iterator = shell.widgets('main');
@@ -537,7 +537,7 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.saveAs, {
-    label: () => `Save ${fileType()} As…`,
+    label: () => `${fileType()} 另存为…`,
     caption: 'Save with new path',
     isEnabled,
     execute: () => {
@@ -549,7 +549,7 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.rename, {
-    label: () => `Rename ${fileType(contextMenuWidget())}…`,
+    label: () => `重命名 ${fileType(contextMenuWidget())}…`,
     isEnabled,
     execute: () => {
       if (isEnabled()) {

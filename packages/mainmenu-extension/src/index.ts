@@ -340,17 +340,18 @@ export function createFileMenu(app: JupyterLab, menu: FileMenu): void {
   // Add save group.
   const saveGroup = [
     'docmanager:save',
-    'filemenu:persist-and-save',
+    // 'filemenu:persist-and-save',
     'docmanager:save-as',
     'docmanager:save-all'
   ].map(command => {
     return { command };
   });
 
+
   // Add the re group.
   const reGroup = [
-    'docmanager:reload',
-    'docmanager:restore-checkpoint',
+    // 'docmanager:reload',
+    // 'docmanager:restore-checkpoint',
     'docmanager:rename'
   ].map(command => {
     return { command };
@@ -360,11 +361,13 @@ export function createFileMenu(app: JupyterLab, menu: FileMenu): void {
   const quitGroup = [{ command: 'filemenu:quit' }];
 
   menu.addGroup(createNoteBookGroup,0);
+  menu.addGroup(saveGroup, 1);
+  menu.addGroup(reGroup, 2);
+
   menu.addGroup(newGroup, 10);
   menu.addGroup(newViewGroup, 11);
   menu.addGroup(closeGroup, 12);
-  menu.addGroup(saveGroup, 13);
-  menu.addGroup(reGroup, 14);
+
   if (menu.quitEntry) {
     menu.addGroup(quitGroup, 99);
   }
