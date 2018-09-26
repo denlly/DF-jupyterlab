@@ -1004,7 +1004,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.clearAllOutputs, {
-    label: 'Clear All Outputs',
+    label: '清除全部输出',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1015,7 +1015,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.clearOutputs, {
-    label: 'Clear Outputs',
+    label: '清除输出',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1076,7 +1076,8 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.cut, {
-    label: 'Cut Cells',
+    //label: 'Cut Cells',
+    label: '剪切单元格',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1087,7 +1088,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.copy, {
-    label: 'Copy Cells',
+    label: '拷贝单元格',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1098,7 +1099,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.pasteBelow, {
-    label: 'Paste Cells Below',
+    label: '插入到单元格之后',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1109,7 +1110,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.pasteAbove, {
-    label: 'Paste Cells Above',
+    label: '插入到单元格之前',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1120,7 +1121,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.pasteAndReplace, {
-    label: 'Paste Cells and Replace',
+    label: '插入并替换单元格',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1131,10 +1132,9 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.deleteCell, {
-    label: 'Delete Cells',
+    label: '删除单元格',
     execute: args => {
       const current = getCurrent(args);
-
       if (current) {
         return NotebookActions.deleteCells(current.content);
       }
@@ -1142,7 +1142,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.split, {
-    label: 'Split Cell',
+    label: '拆分单元格',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1153,7 +1153,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.merge, {
-    label: 'Merge Selected Cells',
+    label: '合并单元格',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1230,7 +1230,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.selectAll, {
-    label: 'Select All Cells',
+    label: '选择全部单元格',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1241,7 +1241,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.deselectAll, {
-    label: 'Deselect All Cells',
+    label: '取消选择单元格',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1252,7 +1252,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.moveUp, {
-    label: 'Move Cells Up',
+    label: '向上移动单元格',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1263,7 +1263,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.moveDown, {
-    label: 'Move Cells Down',
+    label: '向下移动单元格',
     execute: args => {
       const current = getCurrent(args);
 
