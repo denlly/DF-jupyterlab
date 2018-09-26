@@ -144,12 +144,12 @@ export function createEditMenu(app: JupyterLab, menu: EditMenu): void {
 
   // Add the undo/redo commands the the Edit menu.
   commands.addCommand(CommandIDs.undo, {
-    label: 'Undo',
+    label: '撤销',
     isEnabled: Private.delegateEnabled(app, menu.undoers, 'undo'),
     execute: Private.delegateExecute(app, menu.undoers, 'undo')
   });
   commands.addCommand(CommandIDs.redo, {
-    label: 'Redo',
+    label: '恢复',
     isEnabled: Private.delegateEnabled(app, menu.undoers, 'redo'),
     execute: Private.delegateExecute(app, menu.undoers, 'redo')
   });
@@ -318,6 +318,7 @@ export function createFileMenu(app: JupyterLab, menu: FileMenu): void {
 
   // Add the new group
   const newGroup = [
+
     { type: 'submenu' as Menu.ItemType, submenu: menu.newMenu.menu },
     { command: 'filebrowser:create-main-launcher' }
   ];
@@ -352,7 +353,9 @@ export function createFileMenu(app: JupyterLab, menu: FileMenu): void {
   const reGroup = [
     // 'docmanager:reload',
     // 'docmanager:restore-checkpoint',
-    'docmanager:rename'
+    'docmanager:open-files-pool',
+    'docmanager:rename',
+    'docmanager:delete-file',
   ].map(command => {
     return { command };
   });

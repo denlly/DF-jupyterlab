@@ -1307,7 +1307,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.undoCellAction, {
-    label: 'Undo Cell Operation',
+    label: '撤销单元格操作',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1318,7 +1318,7 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.redoCellAction, {
-    label: 'Redo Cell Operation',
+    label: '恢复单元格操作',
     execute: args => {
       const current = getCurrent(args);
 

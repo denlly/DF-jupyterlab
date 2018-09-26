@@ -58,6 +58,10 @@ namespace CommandIDs {
 
   export const openBrowserTab = 'docmanager:open-browser-tab';
 
+  export const openFilesPool = 'docmanager:open-files-pool';
+
+  export const uploadFileToPool = 'docmanager:upload-file-to-pool';
+
   export const openDirect = 'docmanager:open-direct';
 
   export const reload = 'docmanager:reload';
@@ -320,7 +324,7 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.deleteFile, {
-    label: () => `Delete ${fileType()}`,
+    label: () => `移动到回收站 ${fileType()}`,
     execute: args => {
       const path =
         typeof args['path'] === 'undefined' ? '' : (args['path'] as string);
@@ -556,6 +560,25 @@ function addCommands(
         let context = docManager.contextForWidget(contextMenuWidget());
         return renameDialog(docManager, context!.path);
       }
+    }
+  });
+
+  commands.addCommand(CommandIDs.openFilesPool, {
+    label: () => `打开 ${fileType(contextMenuWidget())}…`,
+    isEnabled,
+    execute: () => {
+      if (isEnabled()) {
+        let context = docManager.contextForWidget(contextMenuWidget());
+        return renameDialog(docManager, context!.path);
+      }
+    }
+  });
+
+  commands.addCommand(CommandIDs.uploadFileToPool, {
+    label: () => `上传 ${fileType(contextMenuWidget())}…`,
+    isEnabled,
+    execute: () => {
+      alert("这个功能没开发");
     }
   });
 
