@@ -1471,7 +1471,8 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.hideCode, {
-    label: 'Collapse Selected Code',
+    // label: 'Collapse Selected Code',
+    label: '折叠隐藏代码',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1482,7 +1483,8 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.showCode, {
-    label: 'Expand Selected Code',
+    // label: 'Expand Selected Code',
+    label: '折叠显示代码',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1493,7 +1495,8 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.hideAllCode, {
-    label: 'Collapse All Code',
+    // label: 'Collapse All Code',
+    label: '折叠隐藏全部代码',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1504,7 +1507,8 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.showAllCode, {
-    label: 'Expand All Code',
+    // label: 'Expand All Code',
+    label: '折叠显示全部代码',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1515,7 +1519,8 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.hideOutput, {
-    label: 'Collapse Selected Outputs',
+    // label: 'Collapse Selected Outputs',
+    label: '折叠隐藏输出',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1526,7 +1531,8 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.showOutput, {
-    label: 'Expand Selected Outputs',
+    // label: 'Expand Selected Outputs',
+    label: '折叠显示输出',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1537,7 +1543,8 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.hideAllOutputs, {
-    label: 'Collapse All Outputs',
+    // label: 'Collapse All Outputs',
+    label: '折叠隐藏全部输出',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1548,7 +1555,8 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.showAllOutputs, {
-    label: 'Expand All Outputs',
+    // label: 'Expand All Outputs',
+    label: '折叠显示全部输出',
     execute: args => {
       const current = getCurrent(args);
 

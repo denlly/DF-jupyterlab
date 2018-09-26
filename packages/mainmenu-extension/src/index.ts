@@ -480,7 +480,7 @@ export function createViewMenu(app: JupyterLab, menu: ViewMenu): void {
   const commands = menu.menu.commands;
 
   commands.addCommand(CommandIDs.lineNumbering, {
-    label: 'Show Line Numbers',
+    label: '显示行号',
     isEnabled: Private.delegateEnabled(
       app,
       menu.editorViewers,

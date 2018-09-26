@@ -353,7 +353,7 @@ function addCommands(app: JupyterLab, palette: ICommandPalette): void {
 
   command = CommandIDs.toggleLeftArea;
   app.commands.addCommand(command, {
-    label: args => 'Show Left Sidebar',
+    label: args => '显示左侧功能栏',
     execute: () => {
       if (app.shell.leftCollapsed) {
         app.shell.expandLeft();
