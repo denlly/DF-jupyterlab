@@ -24,7 +24,7 @@ export class KernelMenu extends JupyterLabMenu implements IKernelMenu {
    */
   constructor(options: Menu.IOptions) {
     super(options);
-    this.menu.title.label = 'Kernel';
+    this.menu.title.label = '内核';
 
     this.kernelUsers = new Set<IKernelMenu.IKernelUser<Widget>>();
   }

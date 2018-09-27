@@ -167,7 +167,7 @@ export function createEditMenu(app: JupyterLab, menu: EditMenu): void {
         menu.clearers,
         'clearCurrent'
       )();
-      return `Clear${enabled ? ` ${noun}` : ''}`;
+      return `清除${enabled ? `${noun === 'Outputs' ? '输出' : ''}` : ''}`;
     },
     isEnabled: Private.delegateEnabled(app, menu.clearers, 'clearCurrent'),
     execute: Private.delegateExecute(app, menu.clearers, 'clearCurrent')
@@ -176,7 +176,7 @@ export function createEditMenu(app: JupyterLab, menu: EditMenu): void {
     label: () => {
       const noun = Private.delegateLabel(app, menu.clearers, 'pluralNoun');
       const enabled = Private.delegateEnabled(app, menu.clearers, 'clearAll')();
-      return `Clear All${enabled ? ` ${noun}` : ''}`;
+      return `清除全部${enabled ? `${noun === 'Outputs' ? '输出' : ''}` : ''}`;
     },
     isEnabled: Private.delegateEnabled(app, menu.clearers, 'clearAll'),
     execute: Private.delegateExecute(app, menu.clearers, 'clearAll')
@@ -312,13 +312,12 @@ export function createFileMenu(app: JupyterLab, menu: FileMenu): void {
   });
 
   const createNoteBookGroup = [
-    { command: 'filebrowser:create-notebook-python3'},
-    { command: 'filebrowser:create-notebook-python2'}
-  ]
+    { command: 'filebrowser:create-notebook-python3' },
+    { command: 'filebrowser:create-notebook-python2' }
+  ];
 
   // Add the new group
   const newGroup = [
-
     { type: 'submenu' as Menu.ItemType, submenu: menu.newMenu.menu },
     { command: 'filebrowser:create-main-launcher' }
   ];
@@ -348,14 +347,13 @@ export function createFileMenu(app: JupyterLab, menu: FileMenu): void {
     return { command };
   });
 
-
   // Add the re group.
   const reGroup = [
     // 'docmanager:reload',
     // 'docmanager:restore-checkpoint',
     'docmanager:open-files-pool',
     'docmanager:rename',
-    'docmanager:delete-file',
+    'docmanager:delete-file'
   ].map(command => {
     return { command };
   });
@@ -363,7 +361,7 @@ export function createFileMenu(app: JupyterLab, menu: FileMenu): void {
   // Add the quit group.
   const quitGroup = [{ command: 'filemenu:quit' }];
 
-  menu.addGroup(createNoteBookGroup,0);
+  menu.addGroup(createNoteBookGroup, 0);
   menu.addGroup(saveGroup, 1);
   menu.addGroup(reGroup, 2);
 
@@ -383,7 +381,7 @@ export function createKernelMenu(app: JupyterLab, menu: KernelMenu): void {
   const commands = menu.menu.commands;
 
   commands.addCommand(CommandIDs.interruptKernel, {
-    label: 'Interrupt Kernel',
+    label: '中断内核',
     isEnabled: Private.delegateEnabled(
       app,
       menu.kernelUsers,
@@ -393,7 +391,7 @@ export function createKernelMenu(app: JupyterLab, menu: KernelMenu): void {
   });
 
   commands.addCommand(CommandIDs.restartKernel, {
-    label: 'Restart Kernel…',
+    label: '重启内核…',
     isEnabled: Private.delegateEnabled(app, menu.kernelUsers, 'restartKernel'),
     execute: Private.delegateExecute(app, menu.kernelUsers, 'restartKernel')
   });
@@ -406,7 +404,9 @@ export function createKernelMenu(app: JupyterLab, menu: KernelMenu): void {
         menu.kernelUsers,
         'restartKernelAndClear'
       )();
-      return `Restart Kernel and Clear${enabled ? ` ${noun}` : ''}…`;
+      return `重启内核并清除${
+        enabled ? ` ${noun === 'Outputs' ? '输出' : ''}` : ''
+      }…`;
     },
     isEnabled: Private.delegateEnabled(
       app,
@@ -421,13 +421,13 @@ export function createKernelMenu(app: JupyterLab, menu: KernelMenu): void {
   });
 
   commands.addCommand(CommandIDs.changeKernel, {
-    label: 'Change Kernel…',
+    label: '更改内核…',
     isEnabled: Private.delegateEnabled(app, menu.kernelUsers, 'changeKernel'),
     execute: Private.delegateExecute(app, menu.kernelUsers, 'changeKernel')
   });
 
   commands.addCommand(CommandIDs.shutdownKernel, {
-    label: 'Shutdown Kernel',
+    label: '关闭内核',
     isEnabled: Private.delegateEnabled(app, menu.kernelUsers, 'shutdownKernel'),
     execute: Private.delegateExecute(app, menu.kernelUsers, 'shutdownKernel')
   });
@@ -463,14 +463,14 @@ export function createKernelMenu(app: JupyterLab, menu: KernelMenu): void {
 
   menu.addGroup([{ command: CommandIDs.interruptKernel }], 0);
   menu.addGroup(restartGroup, 1);
-  menu.addGroup(
-    [
-      { command: CommandIDs.shutdownKernel },
-      { command: CommandIDs.shutdownAllKernels }
-    ],
-    2
-  );
-  menu.addGroup([{ command: CommandIDs.changeKernel }], 3);
+  // menu.addGroup(
+  //   [
+  //     { command: CommandIDs.shutdownKernel },
+  //     { command: CommandIDs.shutdownAllKernels }
+  //   ],
+  //   2
+  // );
+  menu.addGroup([{ command: CommandIDs.changeKernel }], 2);
 }
 
 /**
@@ -566,7 +566,7 @@ export function createRunMenu(app: JupyterLab, menu: RunMenu): void {
     label: () => {
       const noun = Private.delegateLabel(app, menu.codeRunners, 'noun');
       const enabled = Private.delegateEnabled(app, menu.codeRunners, 'run')();
-      return `Run Selected${enabled ? ` ${noun}` : ''}`;
+      return `运行${enabled ? `${noun === 'Cells' ? '单元格' : noun}` : ''}`;
     },
     isEnabled: Private.delegateEnabled(app, menu.codeRunners, 'run'),
     execute: Private.delegateExecute(app, menu.codeRunners, 'run')
@@ -580,7 +580,9 @@ export function createRunMenu(app: JupyterLab, menu: RunMenu): void {
         menu.codeRunners,
         'runAll'
       )();
-      return `Run All${enabled ? ` ${noun}` : ''}`;
+      return `运行全部${
+        enabled ? `${noun === 'Cells' ? '单元格' : noun}` : ''
+      }`;
     },
     isEnabled: Private.delegateEnabled(app, menu.codeRunners, 'runAll'),
     execute: Private.delegateExecute(app, menu.codeRunners, 'runAll')
@@ -594,7 +596,9 @@ export function createRunMenu(app: JupyterLab, menu: RunMenu): void {
         menu.codeRunners,
         'restartAndRunAll'
       )();
-      return `Restart Kernel and Run All${enabled ? ` ${noun}` : ''}…`;
+      return `重启内核并运行全部${
+        enabled ? `${noun === 'Cells' ? '单元格' : noun}` : ''
+      }…`;
     },
     isEnabled: Private.delegateEnabled(
       app,

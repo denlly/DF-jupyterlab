@@ -85,7 +85,7 @@ function activate(
   let widget: MainAreaWidget;
 
   commands.addCommand(command, {
-    label: 'Open FAQ',
+    label: '查看 FAQ',
     execute: () => {
       if (!widget || widget.isDisposed) {
         widget = createWidget();

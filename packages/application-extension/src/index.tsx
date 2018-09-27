@@ -416,7 +416,8 @@ function addCommands(app: JupyterLab, palette: ICommandPalette): void {
 
   command = CommandIDs.toggleMode;
   app.commands.addCommand(command, {
-    label: 'Single-Document Mode',
+    // label: 'Single-Document Mode',
+    label: '单文档模式',
     isToggled: () => app.shell.mode === 'single-document',
     execute: () => {
       const args =

@@ -265,7 +265,7 @@ function activate(
   });
 
   commands.addCommand(CommandIDs.about, {
-    label: `About ${info.name}`,
+    label: `关于 ${info.name}`,
     execute: () => {
       // Create the header of the about dialog
       let headerLogo = <div className="jp-About-header-logo" />;

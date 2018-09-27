@@ -216,7 +216,8 @@ const themes: JupyterLabPlugin<IThemeManager> = {
     // If we have a main menu, add the theme manager to the settings menu.
     if (mainMenu) {
       const themeMenu = new Menu({ commands });
-      themeMenu.title.label = 'JupyterLab Theme';
+      // themeMenu.title.label = 'JupyterLab Theme';
+      themeMenu.title.label = 'DF-lab 皮肤';
       app.restored.then(() => {
         const command = CommandIDs.changeTheme;
         const isPalette = false;

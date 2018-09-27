@@ -489,7 +489,8 @@ function activateConsole(
   });
 
   commands.addCommand(CommandIDs.shiftEnterToExecute, {
-    label: 'Execute with Shift+Enter',
+    // label: 'Execute with Shift+Enter',
+    label: '点击 shift+Enter 运行',
     isToggled: () => {
       // Only show as toggled if the shortcuts are strictly
       // The Shift+Enter ones.
@@ -522,7 +523,7 @@ function activateConsole(
   });
 
   commands.addCommand(CommandIDs.enterToExecute, {
-    label: 'Execute with Enter',
+    label: '点击 Enter 运行',
     isToggled: () => {
       // Only show as toggled if the shortcuts are strictly
       // The Enter ones.
@@ -644,7 +645,8 @@ function activateConsole(
 
   // Add the execute keystroke setting submenu.
   const executeMenu = new Menu({ commands });
-  executeMenu.title.label = 'Console Run Keystroke';
+  // executeMenu.title.label = 'Console Run Keystroke';
+  executeMenu.title.label = '控制台运行设置';
   executeMenu.addItem({ command: CommandIDs.enterToExecute });
   executeMenu.addItem({ command: CommandIDs.shiftEnterToExecute });
   mainMenu.settingsMenu.addGroup(

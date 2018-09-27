@@ -732,7 +732,8 @@ function addCommands(
   }
 
   commands.addCommand(CommandIDs.runAndAdvance, {
-    label: 'Run Selected Cells',
+    // label: 'Run Selected Cells',
+    label: '逐步运行单元格',
     execute: args => {
       const current = getCurrent(args);
 
@@ -745,7 +746,8 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.run, {
-    label: "Run Selected Cells and Don't Advance",
+    // label: "Run Selected Cells and Don't Advance",
+    label: '运行当前单元格',
     execute: args => {
       const current = getCurrent(args);
 
@@ -758,7 +760,8 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.runAndInsert, {
-    label: 'Run Selected Cells and Insert Below',
+    // label: 'Run Selected Cells and Insert Below',
+    label: '运行并插入空单元格',
     execute: args => {
       const current = getCurrent(args);
 
@@ -771,7 +774,8 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.runInConsole, {
-    label: 'Run Selected Text or Current Line in Console',
+    // label: 'Run Selected Text or Current Line in Console',
+    label: '在控制台中运行单元格',
     execute: async args => {
       // Default to not activating the notebook (thereby putting the notebook
       // into command mode)
@@ -831,7 +835,8 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.runAll, {
-    label: 'Run All Cells',
+    // label: 'Run All Cells',
+    label: '运行所有单元格',
     execute: args => {
       const current = getCurrent(args);
 
@@ -986,7 +991,8 @@ function addCommands(
     isEnabled
   });
   commands.addCommand(CommandIDs.restartRunAll, {
-    label: 'Restart Kernel and Run All Cells…',
+    // label: 'Restart Kernel and Run All Cells…',
+    label: '重启kernel并运行全部…',
     execute: args => {
       const current = getCurrent(args);
 
@@ -1910,12 +1916,13 @@ function populateMenus(
   });
 
   // Add a run all above/below group to the run menu.
-  const runAboveBelowGroup = [
-    CommandIDs.runAllAbove,
-    CommandIDs.runAllBelow
-  ].map(command => {
-    return { command };
-  });
+  // fanxd: remove this Group
+  // const runAboveBelowGroup = [
+  //   CommandIDs.runAllAbove,
+  //   CommandIDs.runAllBelow
+  // ].map(command => {
+  //   return { command };
+  // });
 
   // Add commands to the application edit menu.
   const undoCellActionGroup = [
@@ -1957,8 +1964,9 @@ function populateMenus(
   mainMenu.editMenu.addGroup(selectGroup, 7);
   mainMenu.editMenu.addGroup(moveCellsGroup, 8);
   mainMenu.editMenu.addGroup(splitMergeGroup, 9);
+
   mainMenu.runMenu.addGroup(runExtras, 10);
-  mainMenu.runMenu.addGroup(runAboveBelowGroup, 11);
+  //mainMenu.runMenu.addGroup(runAboveBelowGroup, 11);
 
   // Add kernel information to the application help menu.
   mainMenu.helpMenu.kernelUsers.add({

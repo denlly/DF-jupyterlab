@@ -602,7 +602,7 @@ function addCommands(
   });
 
   commands.addCommand(CommandIDs.toggleAutosave, {
-    label: 'Autosave Documents',
+    label: '自动保存',
     isToggled: () => docManager.autosave,
     execute: () => {
       const value = !docManager.autosave;
