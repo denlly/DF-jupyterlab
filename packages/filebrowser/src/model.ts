@@ -357,7 +357,11 @@ export class FileBrowserModel implements IDisposable {
         }
 
         const path = (cwd as ReadonlyJSONObject)['path'] as string;
-        const localPath = manager.services.contents.localPath(path);
+        let localPath = manager.services.contents.localPath(path);
+        // if (!localPath) {
+        //   localPath = '/docs/';
+        // }
+        // console.log('localPath' + localPath);
         return manager.services.contents
           .get(path)
           .then(() => this.cd(localPath))

@@ -524,13 +524,13 @@ function addCommands(
     execute: () => createLauncher(commands, browser)
   });
   commands.addCommand(CommandIDs.createPython3, {
-    label: "新建 Python 3 Notebook",
-    execute: ()=> createNotebookPython3(commands, browser)
+    label: '新建 Python 3 Notebook',
+    execute: () => createNotebookPython3(commands, browser)
   });
   commands.addCommand(CommandIDs.createPython2, {
-    label: "新建 Python 2 Notebook",
-    execute: ()=> createNotebookPython2(commands, browser)
-  })
+    label: '新建 Python 2 Notebook',
+    execute: () => createNotebookPython2(commands, browser)
+  });
 }
 
 /**
@@ -623,41 +623,40 @@ function createLauncher(
     });
 }
 
-
 function createNotebookPython3(
   commands: CommandRegistry,
   browser: FileBrowser
 ): Promise<MainAreaWidget<Launcher>> {
-  const {model} = browser;
+  const { model } = browser;
 
   return commands
-  .execute('launcher:create', { cwd: model.path })
-  .then((launcher: MainAreaWidget<Launcher>) => {
-    model.pathChanged.connect(
-      () => {
-        launcher.content.cwd = model.path;
-      },
-      launcher
-    );
-    return launcher;
-  });
+    .execute('launcher:create', { cwd: model.path })
+    .then((launcher: MainAreaWidget<Launcher>) => {
+      model.pathChanged.connect(
+        () => {
+          launcher.content.cwd = model.path;
+        },
+        launcher
+      );
+      return launcher;
+    });
 }
 
 function createNotebookPython2(
   commands: CommandRegistry,
   browser: FileBrowser
 ): Promise<MainAreaWidget<Launcher>> {
-  const {model} = browser;
+  const { model } = browser;
 
   return commands
-  .execute('launcher:create', { cwd: model.path })
-  .then((launcher: MainAreaWidget<Launcher>) => {
-    model.pathChanged.connect(
-      () => {
-        launcher.content.cwd = model.path;
-      },
-      launcher
-    );
-    return launcher;
-  });
+    .execute('launcher:create', { cwd: model.path })
+    .then((launcher: MainAreaWidget<Launcher>) => {
+      model.pathChanged.connect(
+        () => {
+          launcher.content.cwd = model.path;
+        },
+        launcher
+      );
+      return launcher;
+    });
 }

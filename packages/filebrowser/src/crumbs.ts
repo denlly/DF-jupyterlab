@@ -61,6 +61,7 @@ const DROP_TARGET_CLASS = 'jp-mod-dropTarget';
 
 /**
  * A class which hosts folder breadcrumbs.
+ *  定义 面包屑
  */
 export class BreadCrumbs extends Widget {
   /**

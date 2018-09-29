@@ -1,5 +1,6 @@
 // Copyright (c) Jupyter Development Team.
 // Distributed under the terms of the Modified BSD License.
+// Modifier: xiaodong Fan
 
 import { showErrorMessage, Toolbar, ToolbarButton } from '@jupyterlab/apputils';
 
@@ -23,21 +24,25 @@ import { Uploader } from './upload';
 
 /**
  * The class name added to file browsers.
+ * 定义整个FileBrowser的className
  */
 const FILE_BROWSER_CLASS = 'jp-FileBrowser';
 
 /**
  * The class name added to the filebrowser crumbs node.
+ * 定义面包屑样式
  */
 const CRUMBS_CLASS = 'jp-FileBrowser-crumbs';
 
 /**
  * The class name added to the filebrowser toolbar node.
+ * 定义FileBrowser的工具栏(按钮部分)
  */
 const TOOLBAR_CLASS = 'jp-FileBrowser-toolbar';
 
 /**
  * The class name added to the filebrowser listing node.
+ * 定义FileBrowser的工具栏(列表部分)
  */
 const LISTING_CLASS = 'jp-FileBrowser-listing';
 
@@ -70,7 +75,9 @@ export class FileBrowser extends Widget {
     this._crumbs = new BreadCrumbs({ model });
     this.toolbar = new Toolbar<Widget>();
 
+    // 操作节流变量
     let directoryPending = false;
+    // 定义一个”创建目录“按钮
     let newFolder = new ToolbarButton({
       iconClassName: 'jp-NewFolderIcon jp-Icon jp-Icon-16',
       onClick: () => {
@@ -91,11 +98,13 @@ export class FileBrowser extends Widget {
             directoryPending = false;
           });
       },
-      tooltip: 'New Folder'
+      tooltip: '创建目录'
     });
 
+    // 定义一个上传器
     let uploader = new Uploader({ model });
 
+    // 定义一个目录刷新的按钮
     let refresher = new ToolbarButton({
       iconClassName: 'jp-RefreshIcon jp-Icon jp-Icon-16',
       onClick: () => {
@@ -103,11 +112,12 @@ export class FileBrowser extends Widget {
       },
       tooltip: 'Refresh File List'
     });
-
+    // 添加 toolbar 列表
     this.toolbar.addItem('newFolder', newFolder);
     this.toolbar.addItem('upload', uploader);
     this.toolbar.addItem('refresher', refresher);
 
+    // 添加到list view的部分
     this._listing = new DirListing({ model, renderer });
 
     this._crumbs.addClass(CRUMBS_CLASS);
@@ -119,6 +129,7 @@ export class FileBrowser extends Widget {
     layout.addWidget(this._crumbs);
     layout.addWidget(this._listing);
 
+    // 将布局赋值到当前的控件里
     this.layout = layout;
     model.restore(this.id);
   }
@@ -271,6 +282,7 @@ export class FileBrowser extends Widget {
 
 /**
  * The namespace for the `FileBrowser` class statics.
+ *  定义 FileBrowser 的 Ioptionsde
  */
 export namespace FileBrowser {
   /**

@@ -65,19 +65,27 @@ const HELP_CLASS = 'jp-Help';
 
 const RESOURCES = [
   {
-    text: 'JupyterLab Reference',
-    url: 'https://jupyterlab.readthedocs.io/en/stable/'
+    text: 'DataFountain',
+    url: 'https://www.datafountain.cn/'
   },
   {
-    text: 'Notebook Reference',
-    url: 'https://jupyter-notebook.readthedocs.io/en/latest/'
-  },
-  {
-    text: 'Markdown Reference',
-    url:
-      'https://help.github.com/articles/' +
-      'getting-started-with-writing-and-formatting-on-github/'
+    text: '关于  DataFountain',
+    url: 'https://www.datafountain.cn/help/about'
   }
+  // {
+  //   text: 'JupyterLab Reference',
+  //   url: 'https://jupyterlab.readthedocs.io/en/stable/'
+  // },
+  // {
+  //   text: 'Notebook Reference',
+  //   url: 'https://jupyter-notebook.readthedocs.io/en/latest/'
+  // },
+  // {
+  //   text: 'Markdown Reference',
+  //   url:
+  //     'https://help.github.com/articles/' +
+  //     'getting-started-with-writing-and-formatting-on-github/'
+  // }
 ];
 
 RESOURCES.sort((a: any, b: any) => {
